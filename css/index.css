@@ -1,0 +1,21 @@
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  background-color: #d83232; 
+  color: white;
+  text-align: center;
+}
+
+header h1{
+  color: #f03939;
+}
