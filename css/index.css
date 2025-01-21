@@ -1,0 +1,97 @@
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  background-color: #d83232; 
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 125px;
+}
+
+header h1{
+  color: #f03939;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+header{
+  align-items: center; 
+  text-decoration: none;
+}
+
+header a{
+  text-decoration: none;
+}
+
+div button{
+  text-align: center;
+}
+
+.nav {
+  color: #d83232;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  width: 100%;
+  font-size: 20px;
+  align-items: center;
+}
+
+nav ul {
+  color: #d83232;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  width: 100%;
+  font-size: 20px;
+  align-items: center;
+}
+
+section table {
+  text-align: center;
+}
+
+div toast-container{
+  position: fixed;
+  bottom: 0;
+}
+
+p a{
+  text-decoration: none;
+  color: #d83232;
+}
+
+button{
+  background-color: #d83232;
+}
+
+
+.page-link{
+  z-index: 3;
+  color: red;
+}
+.active>.page-link{
+  color: red;
+  background-color: black;
+}
+.page-link:hover{
+  color: #d83232;
+}
+
+.btn {
+  color: #d83232;
+  background-color: black;
+}

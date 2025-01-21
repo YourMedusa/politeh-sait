@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Школа обучения языкам</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css">
+    <script scr="/js/index.js"></script>
+    <script scr="/js/server.js"></script>
+    <script scr="/js/repetitor.js"></script>
+    <script scr="/js/account.js"></script>
+</head>
+<body>
+    <header class="con">
+        <div class="container">
+                <h1 class="text">Школа обучения языкам ChatterboxChateau</h1>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a href="courses.html" class="nav">Наши курсы</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav">О нас</a></li>
+                    <li class="nav-item"><a href="contacts.html" class="nav">Контакты</a></li>
+                    <li class="nav-item"><a href="log.html" class="nav">Личный кабинет</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- уведомления -->
+    <section id="notifications" class="container mt-4"></section>
+
+    <section id="about-centre" class="container my-5">
+        <h2>Что практикуют в нашей школе и информация о нас</h2>
+        <p>Здесь, за скромню плату, наши преподаватели научат вас самым различным языкам, а самое главное сделают этот процесс ярким и запоминающимся.Мы обещаем своим клиентам получить настоящее удовольствие от изучения языков и хороший результат, ведь мы используем самые современные решения и индивидуальный подход к каждому клиенту.</p>
+    </section>
+
+    <!-- плюсы нашей школы -->
+    <section id="benefits" class="container my-5">
+        <h2 class="text-center mb-4">Почему мы лучшая школа?</h2>
+        <div class="row text-center">
+            <div class="card-body">
+                <h5 class="card-title">Квалифицированные проффесионалы своего дела</h5>
+                <p class="card-text">Наш преподавательский состав состоит из настоящих специалистов, которые могут найти подход к любому студенту.</p>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Новейшие методы обучения</h5>
+                <p class="card-text">Мы используем самые передовые подходы к преподаванию, которые заинтересуют любого.</p>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Гибкий график</h5>
+                <p class="card-text">Вы сами можете выбрать форму и время обучения.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- выбор курсов -->
+    <form id="search-form" class="mb-4 container mt-4">
+        <label for="search-level" class="form-label">Выберите степень углубления:</label>
+        <select id="search-level" class="form-select">
+            <option value="allCourses">Все уровни</option>
+            <option value="Beginner">Начальный уровень</option>
+            <option value="Advanced">Продвинутый уровень</option>
+        </select>
+    </form>
+
+    <section id="courses" class="cours">
+        <h2>Доступные курсы</h2>
+        <!-- контейнер для быстрого добавления -->
+        <div class="row"></div>
+        <nav aria-label="Навигация по страницам курсов">
+            <ul class="pagination" id="pagination">
+                <li class ="page">
+                    <a href="#" class="page-link">1</a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+
+    <!-- модальное окно курса -->
+    <div class="modal fade" id="courseModal" tabindex="-1" aria-labelledby="courseModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>  
+    
+    <div class="container mt-5">
+        <!-- открыть модальное окно -->
+        <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#applyModal">
+            Подать заявку
+        </button>
+        <!-- Модальное окно -->
+        <div class="modal fade" id="applyModal" tabindex="-1" aria-labelledby="applyModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <form id="applicationForm">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="applyModalLabel">Заявка на обучение</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="courseSelect" class="form-label">Выберите курс</label>
+                                <select id="courseSelect" class="form-select">
+                                    <option value="">Загрузка курсов...</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="courseName" class="form-label">Название курса</label>
+                                <input type="text" id="courseName" class="form-control" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="teacherName" class="form-label">Преподаватель</label>
+                                <input type="text" id="teacherName" class="form-control" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="courseDuration" class="form-label">Срок курса</label>
+                                <input type="text" id="courseDuration" class="form-control" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="startDate" class="form-label">Выберите дату начала обучения</label>
+                                <select id="startDate" class="form-select">
+                                    <option value="">Сначала выберите курс</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="timeStart" class="form-label">Время начала</label>
+                                <input type="time" id="timeStart" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="personsCount" class="form-label">Количество учеников</label>
+                                <input type="number" id="personsCount" class="form-control" min="1" max="20">
+                            </div>
+                            <div class="mb-3">
+                                <label for="totalPrice" class="form-label">Стоимость обучения</label>
+                                <input type="text" id="totalPrice" class="form-control" readonly>
+                            </div>
+                            <!-- доп услыги -->
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" id="personalized" class="form-check-input">
+                                <label for="personalized" class="form-check-label">Индивидуальное обучение (+2000 руб./нед.)</label>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" id="interactive" class="form-check-input">
+                                <label for="interactive" class="form-check-label">Интерактивный курс (x2 к стоимости)</label>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="button" data-bs-dismiss="modal">Закрыть</button>
+                                <button type="reset" class="button">Сбросить</button>
+                                <button type="submit" class="button">Отправить заявку</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- преподаватели -->
+    <section id="tutors" class="container my-5">
+        <h2>Выберите стаж</h2>
+
+        <form id="tutor-filter-form" class="mb-4">
+            <label for="experience-filter" class="form-label">Минимальный опыт (лет):</label>
+            <input type="number" id="experience-filter" class="form-control mb-3" placeholder="Укажите опыт" min="0">
+        </form>
+
+        <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="bookingForm" onsubmit="submitBookingForm(event)">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="bookingModalLabel">Записаться на занятие</h5>
+                            <button type="button" class="button"</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="bookingTutorName" class="form-label">Имя преподавателя</label>
+                                <input type="text" id="bookingTutorName" class="form-control" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="bookingPrice" class="form-label">Цена урока</label>
+                                <input type="text" id="bookingPrice" class="form-control" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="bookingDate" class="form-label">Дата урока</label>
+                                <input type="date" id="bookingDate" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="bookingTime" class="form-label">Время урока</label>
+                                <input type="time" id="bookingTime" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="userName" class="form-label">Ваше ФИО</label>
+                                <input type="text" id="userName" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="userEmail" class="form-label">Ваш Email</label>
+                                <input type="email" id="userEmail" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="button" data-bs-dismiss="modal">Закрыть</button>
+                            <button type="submit" class="button">Записаться на урок</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-5">
+            <h2 class="mb-4">Наши преподаватели</h2>
+            <div id="tutor-container" class="row g-4">
+            
+            </div>
+
+            <!-- Пагинация -->
+            <nav aria-label="Навигация по страницам" class="mt-4">
+                <ul id="pagination2" class="pagination">
+                    
+                </ul>
+            </nav>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="contact">
+        <div class="cont">
+            <h5>О нашем центре</h5>
+            <p>Мы лучшая онлайн-школа для обучения самых распространненых языков. Интересно будет всем!</p>
+        </div>
+        <div class="list">
+            <h5>Контакты</h5>
+            <ul class="listh2">
+                <li><strong>Телефон:</strong> +7 (967) 280-21-33</li>
+                <li><strong>Email:</strong> vlad.terentiev44@gmail.com</li>
+                <li><strong>Адрес:</strong> Балашиха, Реутовская 12.</li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/index.js" defer></script>
+</body>
+</html>
